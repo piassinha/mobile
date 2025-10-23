@@ -17,6 +17,7 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
     );
+    }
   }
 
   Widget _buildVerticalNavBar(BuildContext context) {
@@ -101,7 +102,7 @@ class HomeScreen extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.only(top: 16, right: 16, bottom: 16),
         decoration: BoxDecoration(
-          color: const Color(0xFF001F3F),
+          color: const Color.fromARGB(255, 255, 255, 255),
           borderRadius: BorderRadius.circular(24),
         ),
         child: SingleChildScrollView(
@@ -114,7 +115,7 @@ class HomeScreen extends StatelessWidget {
                 const SizedBox(height: 24),
                 
                 _buildMapCard(),
-                const SizedBox(height: 24),
+                const SizedBox(height: 44),
 
                 _buildPhoneCard(),
               ],
@@ -126,38 +127,70 @@ class HomeScreen extends StatelessWidget {
   }
 
   Widget _buildSalesCard() {
-    return Image.asset(
-      'assets/sales.png',
-      fit: BoxFit.contain,
-    );
-  }
+  return Container(
+    decoration: BoxDecoration(
+      color: Color(0xFF001122), // fundo azul escuro (pode mudar)
+      borderRadius: BorderRadius.circular(16), // cantos arredondados
+    ),
+    padding: EdgeInsets.all(16), // espaço interno
+    child: Center(
+      child: Image.asset(
+        'assets/sales.png',
+        width: 220, // define o tamanho da imagem
+        height: 180,
+        fit: BoxFit.contain,
+      ),
+    ),
+  );
+}
 
   Widget _buildMapCard() {
-    return Image.asset(
-      'assets/mapa.png',
-      fit: BoxFit.contain,
-    );
-  }
+ return Container(
+    decoration: BoxDecoration(
+      color: Color(0xFF001122), // fundo azul escuro (pode mudar)
+      borderRadius: BorderRadius.circular(16), // cantos arredondados
+    ),
+    padding: EdgeInsets.all(16), // espaço interno
+    child: Center(
+      child: Image.asset(
+        'assets/mapa.png',
+        width: 260, // define o tamanho da imagem
+        height: 140,
+        fit: BoxFit.contain,
+      ),
+    ),
+  );
+}
 
-  Widget _buildPhoneCard() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
+Widget _buildPhoneCard() {
+  return Container(
+    width: 200,  // bloco maior
+    padding: EdgeInsets.all(16),  // espaçamento interno confortável
+    decoration: BoxDecoration(
+      color: Color(0xFF001122),
+      borderRadius: BorderRadius.circular(16),
+    ),
+    child: Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        const Text(
+        Text(
           'SUA CENTRAL DE CHAMADOS RÁPIDA E ORGANIZADA',
           style: TextStyle(
             color: Colors.white,
-            fontSize: 18,
             fontWeight: FontWeight.bold,
+            fontSize: 16,
           ),
-          textAlign: TextAlign.center, 
+          textAlign: TextAlign.center,
         ),
-        const SizedBox(height: 24), 
+        SizedBox(height: 10),
         Image.asset(
-          'assets/tel.png', 
-          fit: BoxFit.fitWidth,
+          'assets/phone.png',
+          width: 250,  // imagem bem maior
+          height: 270,
+          fit: BoxFit.contain,
         ),
       ],
-    );
-  }
+    ),
+  );
 }

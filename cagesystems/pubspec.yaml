@@ -67,6 +67,7 @@ flutter:
       - assets/mapa.png
       - assets/tel.png
       - assets/sales.png
+      - assets/phone.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
