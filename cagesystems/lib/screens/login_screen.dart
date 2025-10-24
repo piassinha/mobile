@@ -62,7 +62,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  /// Constrói o cabeçalho (azul + imagem de ondas)
+  /// imagem do cabeçalho
   Widget _buildHeader() {
     return Stack(
       children: [
@@ -172,7 +172,7 @@ class _LoginScreenState extends State<LoginScreen> {
             const SizedBox(height: 24),
             ElevatedButton(
               onPressed: () {
-                // NAVEGAÇÃO para a tela de Cadastro
+                // navegação p tela de cadastro
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const SignUpScreen()),
@@ -242,3 +242,4 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
+

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'home_screen.dart'; 
+import 'tecnicos_screen.dart'; 
+import 'dashboard_screen.dart';
+import 'ativos_screen.dart'; 
 
 class ChamadosScreen extends StatelessWidget {
   const ChamadosScreen({Key? key}) : super(key: key);
@@ -22,7 +25,7 @@ class ChamadosScreen extends StatelessWidget {
   Widget _buildVerticalNavBar(BuildContext context) {
     return Container(
       width: 80,
-      color: const Color(0xFF001F3F),
+      color: const Color(0xFF001122),
       padding: const EdgeInsets.symmetric(vertical: 24.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -46,23 +49,43 @@ class ChamadosScreen extends StatelessWidget {
               _buildNavIcon(
                 icon: Icons.people_outline,
                 isSelected: true,
+                onTap: () {},
+              ),
+              _buildNavIcon(
+                icon: Icons.work_outline,
+                isSelected: false,
                 onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => const TecnicosScreen()),
+                  );
                 },
               ),
-              _buildNavIcon(icon: Icons.work_outline, isSelected: false, onTap: () {}),
-              _buildNavIcon(icon: Icons.grid_view_outlined, isSelected: false, onTap: () {}),
-              _buildNavIcon(icon: Icons.apartment_outlined, isSelected: false, onTap: () {}),
+              _buildNavIcon(
+                icon: Icons.grid_view_outlined,
+                isSelected: false,
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => const DashboardScreen()),
+                  );
+                },
+              ),
+              _buildNavIcon(
+                icon: Icons.apartment_outlined,
+                isSelected: false,
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => const AtivosScreen()),
+                  );
+                },
+              ),
               _buildNavIcon(icon: Icons.build_outlined, isSelected: false, onTap: () {}),
               _buildNavIcon(icon: Icons.description_outlined, isSelected: false, onTap: () {}),
             ],
           ),
           const CircleAvatar(
-            radius: 20,
-            backgroundColor: Colors.blueGrey,
-            child: Text(
-              'GM',
-              style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-            ),
           ),
         ],
       ),
@@ -226,11 +249,11 @@ class ChamadosScreen extends StatelessWidget {
     );
   }
 
-  /// Tabela de Histórico
+  /// tabela de historico
   Widget _buildHistoryTable() {
     return Column(
       children: [
-        // Cabeçalho
+        // cabeçalho
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
           decoration: BoxDecoration(
@@ -250,7 +273,7 @@ class ChamadosScreen extends StatelessWidget {
         // dados ficticios
         _buildHistoryRow('#001', 'Adidas', 'Pendente', const Color(0xFFFFF3CD), const Color(0xFF664D03)),
         _buildHistoryRow('#002', 'Adidas', 'Concluido', const Color(0xFFD1E7DD), const Color(0xFF0F5132)),
-        _buildHistoryRow('#002', 'Adidas', 'Em andamento', const Color(0xFFFFE0B2), const Color(0xFFE65100)),
+        _buildHistoryRow('#003', 'Adidas', 'Em andamento', const Color(0xFFFFE0B2), const Color(0xFFE65100)),
       ],
     );
   }

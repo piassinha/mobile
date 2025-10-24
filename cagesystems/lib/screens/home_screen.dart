@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'chamados_screen.dart'; 
+import 'tecnicos_screen.dart';
+import 'dashboard_screen.dart';
+import 'ativos_screen.dart'; 
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -7,7 +10,8 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black, 
+      backgroundColor: Color(0xFF001122), 
+      
       body: SafeArea(
         child: Row(
           children: [
@@ -34,38 +38,56 @@ class HomeScreen extends StatelessWidget {
           ),
           Column(
             children: [
-              // icones:
               _buildNavIcon(
                 icon: Icons.home,
                 isSelected: true,
-                onTap: () {
-                },
+                onTap: () {},
               ),
               _buildNavIcon(
                 icon: Icons.people_outline,
                 isSelected: false,
                 onTap: () {
-                  // ao clicar vai pra tela de chamados:
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(builder: (context) => const ChamadosScreen()),
                   );
                 },
               ),
-              _buildNavIcon(icon: Icons.work_outline, isSelected: false, onTap: () {}),
-              _buildNavIcon(icon: Icons.grid_view_outlined, isSelected: false, onTap: () {}),
-              _buildNavIcon(icon: Icons.apartment_outlined, isSelected: false, onTap: () {}),
+              _buildNavIcon(
+                icon: Icons.work_outline,
+                isSelected: false,
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => const TecnicosScreen()),
+                  );
+                },
+              ),
+              _buildNavIcon(
+                icon: Icons.grid_view_outlined,
+                isSelected: false,
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => const DashboardScreen()),
+                  );
+                },
+              ),
+              _buildNavIcon(
+                icon: Icons.apartment_outlined,
+                isSelected: false,
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => const AtivosScreen()),
+                  );
+                },
+              ),
               _buildNavIcon(icon: Icons.build_outlined, isSelected: false, onTap: () {}),
               _buildNavIcon(icon: Icons.description_outlined, isSelected: false, onTap: () {}),
             ],
           ),
           const CircleAvatar(
-            radius: 20,
-            backgroundColor: Colors.blueGrey,
-            child: Text(
-              'GM',
-              style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-            ),
           ),
         ],
       ),
@@ -165,7 +187,7 @@ class HomeScreen extends StatelessWidget {
 Widget _buildPhoneCard() {
   return Container(
     width: 200,  // bloco maior
-    padding: EdgeInsets.all(16),  // espaçamento interno confortável
+    padding: EdgeInsets.all(20),  // espaçamento interno confortável
     decoration: BoxDecoration(
       color: Color(0xFF001122),
       borderRadius: BorderRadius.circular(16),
